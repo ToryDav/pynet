@@ -17,23 +17,51 @@ Please enter an IP address: 80.98.100.240
 Four columns, fifteen characters wide, a header column, data centered in the column.
 
 """
-from __future__ import print_function
+ip_addr = input("Please enter an IP address: ")
+ip_octets = ip_addr.split(".")
+octet_1 = ip_octets[0]
+octet_2 = ip_octets[1]
+octet_3 = ip_octets[2]
+octet_4 = ip_octets[3]
 
-try:
-    # PY2
-    ip_addr = raw_input("Please enter an IP address: ")
-except NameError:
-    # PY3
-    ip_addr = input("Please enter an IP address: ")
+# Functions
+def decimalToBinary(n):  
+    return bin(n)  
+def decimalToHex(n):  
+    return hex(n)
 
-octets = ip_addr.split(".")
-print()
-print("{:^15}{:^15}{:^15}{:^15}".format("Octet1", "Octet2", "Octet3", "Octet4"))
-print("-" * 60)
-print("{:^15}{:^15}{:^15}{:^15}".format(*octets))
-print("{:^15}{:^15}{:^15}{:^15}".format(bin(int(octets[0])), bin(int(octets[1])),
-                                        bin(int(octets[2])), bin(int(octets[3]))))
-print("{:^15}{:^15}{:^15}{:^15}".format(hex(int(octets[0])), hex(int(octets[1])),
-                                        hex(int(octets[2])), hex(int(octets[3]))))
-print("-" * 60)
-print()
+octet_1 = int(ip_octets[0])
+octet_2 = int(ip_octets[1])
+octet_3 = int(ip_octets[2])
+octet_4 = int(ip_octets[3])
+
+octet1_to_bin = decimalToBinary(octet_1)
+octet2_to_bin = decimalToBinary(octet_2)
+octet3_to_bin = decimalToBinary(octet_3)
+octet4_to_bin = decimalToBinary(octet_4)
+
+octet1_to_Hex = decimalToHex(octet_1)
+octet2_to_Hex = decimalToHex(octet_2)
+octet3_to_Hex = decimalToHex(octet_3)
+octet4_to_Hex = decimalToHex(octet_4)
+
+line = "------------------------------------------------------------"
+
+array = [line,octet_1,octet1_to_bin,octet1_to_Hex,octet_2,octet2_to_bin,octet2_to_Hex,octet_3,octet3_to_bin,octet3_to_Hex,octet_4,octet4_to_bin,octet4_to_Hex]
+
+col_1 = ["Octet1","------",{array[1]},{array[2]},{array[3]}]
+col_2 = ["\nOctet2","------",{array[4]},{array[5]},{array[6]}]
+col_3 = ["\nOctet3","------",{array[7]},{array[8]},{array[9]}]
+col_4 = ["\nOctet4","------",{array[10]},{array[11]},{array[12]}]
+
+for item in col_1:
+  print(item)
+
+for item in col_2:
+  print(item)
+
+for item in col_3:
+  print(item)
+
+for item in col_4:
+  print(item)

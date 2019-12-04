@@ -11,7 +11,6 @@ Use the from future technique so that any string literals in Python2 are unicode
 compare if variable1 equals variable2
 compare if variable1 is not equal to variable3
 """
-from __future__ import unicode_literals
 
 ipv6_addr1 = "2001:db8:1234::1"
 IPV6_ADDR2 = "2001:db8:1234::2"
